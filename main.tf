@@ -2,6 +2,13 @@ provider "aws" {
   region = "us-east-1"
   shared_credentials_files = [ "~/.aws/credentials" ]
 }
+terraform {
+  backend "s3" {
+    bucket = "backend-for-webpage-automation"
+    key = "webpage/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
 module "vpc" {
   source = "./modules/vpc"
 }
