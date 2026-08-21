@@ -1,0 +1,950 @@
+/*
+
+  Tooplate 2164 Compass
+  https://www.tooplate.com/view/2164-compass
+  Free HTML CSS Template
+
+*/
+
+/* ================================================
+   THE COMPASS — Arctic & Cobalt Editorial System
+   ================================================ */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --glacier:  #F7F9FC;
+    --snow:     #FFFFFF;
+    --slate:    #0F172A;
+    --cobalt:   #0047AB;
+    --cobalt-light: #0047AB1A;
+    --mist:     #E2E8F0;
+    --stone:    #64748B;
+
+    --serif:    'Playfair Display', Georgia, serif;
+    --sans:     'Inter', system-ui, sans-serif;
+
+    --space-xs:  clamp(0.5rem, 1vw, 1rem);
+    --space-sm:  clamp(1rem, 2vw, 2rem);
+    --space-md:  clamp(2rem, 5vw, 5rem);
+    --space-lg:  clamp(4rem, 10vh, 10rem);
+    --space-xl:  clamp(6rem, 15vh, 15rem);
+
+    --gutter:    clamp(1.5rem, 4vw, 4rem);
+    --max-w:     1400px;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--slate);
+    background-color: var(--glacier);
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: var(--cobalt);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* ================================================
+   NAVIGATION — Minimal top bar
+   ================================================ */
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem var(--gutter);
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    transition: background 0.5s ease, backdrop-filter 0.5s ease, 
+                padding 0.4s ease, border-color 0.5s ease;
+}
+
+.nav-bar.scrolled {
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.nav-logo {
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--snow);
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links a {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.nav-links--desktop {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links--mobile {
+    display: none;
+}
+
+.nav-links a:hover {
+    color: var(--snow);
+    letter-spacing: 0.14em;
+    opacity: 1;
+}
+
+/* Hamburger */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 1.5px;
+    background: var(--snow);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(4.5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-4.5px);
+}
+
+/* ================================================
+   SECTION 1 — HERO (The Cover)
+   ================================================ */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(15, 23, 42, 0.65) 0%,
+        rgba(15, 23, 42, 0.15) 40%,
+        rgba(15, 23, 42, 0.05) 100%
+    );
+}
+
+.hero-content {
+    position: absolute;
+    bottom: clamp(3rem, 8vh, 8rem);
+    left: var(--gutter);
+    right: var(--gutter);
+    color: var(--snow);
+}
+
+.hero-issue {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    max-width: 14ch;
+    margin-bottom: 2rem;
+}
+
+.hero-title em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+}
+
+.hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-meta .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--snow);
+    opacity: 0.4;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: clamp(3rem, 8vh, 8rem);
+    right: var(--gutter);
+    writing-mode: vertical-rl;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--snow);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero-scroll::before {
+    content: '';
+    width: 1px;
+    height: 60px;
+    background: var(--snow);
+    opacity: 0.4;
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.2; transform: scaleY(1); }
+    50% { opacity: 0.6; transform: scaleY(1); }
+}
+
+/* ================================================
+   SECTION 2 — PROLOGUE (Typographic Drop)
+   ================================================ */
+
+.prologue {
+    padding: var(--space-xl) var(--gutter);
+    background: var(--snow);
+}
+
+.prologue-inner {
+    max-width: 60ch;
+    margin: 0 auto;
+}
+
+.prologue-label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cobalt);
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.prologue-label::after {
+    content: '';
+    flex: 1;
+    max-width: 120px;
+    height: 1px;
+    background: var(--cobalt);
+    opacity: 0.3;
+}
+
+.prologue-text {
+    font-family: var(--serif);
+    font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+    line-height: 1.75;
+    color: var(--slate);
+    letter-spacing: -0.01em;
+}
+
+.prologue-text::first-letter {
+    font-family: var(--serif);
+    font-weight: 700;
+    float: left;
+    font-size: 5.5em;
+    line-height: 0.8;
+    margin-right: 0.08em;
+    margin-top: 0.05em;
+    color: var(--cobalt);
+}
+
+.prologue-text + .prologue-text {
+    margin-top: 1.5em;
+    text-indent: 0;
+}
+
+.prologue-text + .prologue-text::first-letter {
+    font-size: inherit;
+    float: none;
+    margin: 0;
+    color: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.prologue-pullquote {
+    margin: var(--space-md) 0;
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--mist);
+    border-bottom: 1px solid var(--mist);
+}
+
+.prologue-pullquote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.45;
+    color: var(--cobalt);
+    letter-spacing: -0.02em;
+}
+
+.prologue-pullquote cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stone);
+}
+
+/* ================================================
+   SECTION 3 — THE ROUTE (Sticky Image Offset)
+   ================================================ */
+
+.route {
+    position: relative;
+    background: var(--glacier);
+}
+
+.route-bg {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.route-bg img {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.route-bg img.active {
+    opacity: 1;
+}
+
+.route-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        var(--glacier) 0%,
+        var(--glacier) 15%,
+        rgba(247, 249, 252, 0.85) 30%,
+        rgba(247, 249, 252, 0.45) 50%,
+        rgba(247, 249, 252, 0.1) 75%,
+        transparent 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.route-chapters {
+    position: relative;
+    z-index: 2;
+    margin-top: -100vh;
+    padding: var(--space-xl) var(--gutter);
+}
+
+.chapter {
+    padding: 10vh 0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chapter:first-child {
+    padding-top: 5vh;
+}
+
+.chapter-number {
+    font-family: var(--serif);
+    font-size: clamp(4rem, 8vw, 6rem);
+    font-weight: 400;
+    color: var(--cobalt);
+    opacity: 0.12;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.chapter-location {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cobalt);
+    margin-bottom: 1rem;
+}
+
+.chapter-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--slate);
+    margin-bottom: 1.5rem;
+    max-width: 18ch;
+}
+
+.chapter-body {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--stone);
+    max-width: 48ch;
+}
+
+.chapter-body + .chapter-body {
+    margin-top: 1em;
+}
+
+.chapter-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cobalt);
+}
+
+.chapter-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.chapter-link:hover {
+    opacity: 1;
+}
+
+.chapter-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* ================================================
+   SECTION 4 — THE GALLERY (Structured Masonry)
+   ================================================ */
+
+.gallery {
+    padding: var(--space-xl) var(--gutter);
+    background: var(--snow);
+}
+
+.gallery-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--mist);
+}
+
+.gallery-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.gallery-count {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stone);
+    padding-bottom: 0.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: clamp(180px, 20vw, 280px);
+    gap: 6px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(15, 23, 42, 0.5) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-item img {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 2;
+    color: var(--snow);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s;
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-caption-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.gallery-caption-sub {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+}
+
+.gallery-item.tall {
+    grid-row: span 2;
+}
+
+/* ================================================
+   SECTION 5 — FOOTER (The Index)
+   ================================================ */
+
+.site-footer {
+    padding: var(--space-xl) var(--gutter) var(--space-md);
+    background: var(--slate);
+    color: var(--snow);
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: var(--gutter);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+.footer-brand-desc {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 32ch;
+}
+
+.footer-col-title {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 1.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-col a {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: var(--snow);
+    opacity: 1;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-md);
+}
+
+.footer-copy {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-copy a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-social a:hover {
+    color: var(--snow);
+    opacity: 1;
+}
+
+.footer-subscribe p {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1.25rem;
+}
+
+.footer-subscribe-form {
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-subscribe-form input {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    outline: none;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--snow);
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+.footer-subscribe-form input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-subscribe-form input:focus {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.footer-subscribe-form button {
+    padding: 0.85rem 1.5rem;
+    background: var(--cobalt);
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--snow);
+    cursor: pointer;
+    border-radius: 0;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.footer-subscribe-form button:hover {
+    background: #0055CC;
+}
+
+/* ================================================
+   SCROLL REVEAL SYSTEM
+   ================================================ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================
+   RESPONSIVE — Tablet
+   ================================================ */
+
+@media (max-width: 1024px) {
+    .route-chapters {
+        padding: var(--space-md) var(--gutter);
+    }
+
+    .chapter {
+        min-height: auto;
+        padding: 6vh 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item.tall {
+        grid-row: span 2;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+        row-gap: var(--space-md);
+    }
+}
+
+/* ================================================
+   RESPONSIVE — Mobile
+   ================================================ */
+
+@media (max-width: 680px) {
+    .nav-links--desktop {
+        display: none;
+    }
+
+    .nav-links--mobile {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        background: var(--slate);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    box-shadow 0.45s ease;
+        z-index: 150;
+        overflow-y: auto;
+        padding: 100px var(--gutter) 80px;
+        box-shadow: -20px 0 60px rgba(15, 23, 42, 0);
+    }
+
+    .nav-links--mobile.open {
+        transform: translateX(0);
+        box-shadow: -20px 0 60px rgba(15, 23, 42, 0.3);
+    }
+
+    .nav-close-wrap {
+        align-self: flex-end;
+        margin-bottom: 1rem;
+    }
+
+    .nav-close {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .nav-close:hover {
+        color: var(--snow);
+    }
+
+    .nav-links--mobile a {
+        font-size: 1.125rem;
+        letter-spacing: 0.15em;
+        padding: 0.5rem 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+        z-index: 200;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4.5rem);
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .hero-meta {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .prologue-text::first-letter {
+        font-size: 4em;
+    }
+
+    .chapter-number {
+        font-size: 3.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: clamp(140px, 30vw, 200px);
+    }
+
+    .gallery-item.tall {
+        grid-row: span 2;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hero-scroll::before {
+        animation: none;
+    }
+
+    .gallery-item img {
+        transition: none;
+    }
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Compass - Editorial Travel Template</title>
+    <!--
+
+    Tooplate 2164 Compass
+    
+    https://www.tooplate.com/view/2164-compass
+    
+    Free HTML CSS Template
+
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tooplate-2164-compass-style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="#" class="nav-logo">The Compass</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links nav-links--desktop">
+            <li><a href="#prologue">Prologue</a></li>
+            <li><a href="#route">The Route</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- MOBILE DRAWER (outside nav-bar to avoid backdrop-filter containing block) -->
+    <ul class="nav-links nav-links--mobile">
+        <li class="nav-close-wrap"><button class="nav-close" aria-label="Close menu">&times;</button></li>
+        <li><a href="#prologue">Prologue</a></li>
+        <li><a href="#route">The Route</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- SECTION 1 — HERO -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="images/hero-01.jpg" alt="Mountain landscape at golden hour" loading="eager">
+        </div>
+        <div class="hero-content">
+            <p class="hero-issue">Issue No. 14 &mdash; Spring 2026</p>
+            <h1 class="hero-title">The Long Way <em>North</em></h1>
+            <div class="hero-meta">
+                <span>Words by Elaine Moreau</span>
+                <span class="divider"></span>
+                <span>Photography by Tobias Keller</span>
+            </div>
+        </div>
+        <div class="hero-scroll">Scroll to explore</div>
+    </section>
+
+    <!-- SECTION 2 — PROLOGUE -->
+    <section class="prologue" id="prologue">
+        <div class="prologue-inner">
+            <p class="prologue-label reveal">Prologue</p>
+            <p class="prologue-text reveal">
+                Somewhere between the silence of snowfields and the low murmur of coastal wind, there is a threshold where the map becomes irrelevant. You stand at the edge of a glacier-carved valley and realize that the coordinates pinned to your itinerary cannot capture the weight of this light, nor the way it turns granite into silver at four in the morning. This is the north that exists beyond navigation - a place measured not in latitude but in the quality of stillness it demands of you.
+            </p>
+
+            <div class="prologue-pullquote reveal">
+                <p>"The compass, in the end, points not to a destination but to the traveler's own willingness to be disoriented."</p>
+                <cite>- From the field journals, March 2026</cite>
+            </div>
+
+            <p class="prologue-text reveal">
+                We set out in early March, when the days were still short enough to feel borrowed. The route we had sketched across three countries was ambitious but deliberately unfinished - gaps left for weather, for chance encounters, for the kind of detours that become the story. What follows is not a guide. It is a document of attention: the slow practice of looking at a landscape until it looks back.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — THE ROUTE -->
+    <section class="route" id="route">
+        <div class="route-bg">
+            <img src="images/route-01.jpg" alt="Lofoten mountains" class="active" data-slide="0">
+            <img src="images/route-02.jpg" alt="Iceland glacial lagoon" data-slide="1">
+            <img src="images/route-03.jpg" alt="Faroe Islands cliffs" data-slide="2">
+        </div>
+
+        <div class="route-chapters">
+
+            <article class="chapter reveal" data-chapter="0">
+                <div class="chapter-number">01</div>
+                <p class="chapter-location">Lofoten Islands, Norway // 68 N</p>
+                <h2 class="chapter-title">Where the Mountains Enter the Sea</h2>
+                <p class="chapter-body">
+                    The Lofoten wall rises without warning - a jagged curtain of gneiss and granite that breaks the horizon line and refuses to let you look away. We arrived by ferry in the pale blue of a subarctic dawn, the kind of light that makes everything look as though it has been painted with a single, careful brush.
+                </p>
+                <p class="chapter-body">
+                    For three days we traced the coastal road between fishing villages, each one a study in red and ochre wood against stone-grey water. The silence here is architectural; it has rooms and corridors.
+                </p>
+                <a href="#" class="chapter-link">
+                    Read the full chapter
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </a>
+            </article>
+
+            <article class="chapter reveal" data-chapter="1">
+                <div class="chapter-number">02</div>
+                <p class="chapter-location">Jokulsarlon, Iceland // 64 N</p>
+                <h2 class="chapter-title">A Catalogue of Blue</h2>
+                <p class="chapter-body">
+                    Iceland teaches you that blue is not a single colour but a language. The glacial lagoon at Jokulsarlon speaks it in dozens of dialects - cerulean in the shallows, cobalt where the icebergs drift, a deep and improbable indigo at their fractured cores.
+                </p>
+                <p class="chapter-body">
+                    We spent an afternoon watching ice calve from the glacier's tongue, each collapse sending low thunder across the water. Time behaves differently near ice this old. You begin to understand that what you are witnessing is not scenery but geology in real-time, the earth slowly revising itself.
+                </p>
+                <a href="#" class="chapter-link">
+                    Read the full chapter
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </a>
+            </article>
+
+            <article class="chapter reveal" data-chapter="2">
+                <div class="chapter-number">03</div>
+                <p class="chapter-location">Faroe Islands, Denmark // 62 N</p>
+                <h2 class="chapter-title">The Edges of the Known</h2>
+                <p class="chapter-body">
+                    The Faroe Islands exist in a state of perpetual becoming. Fog arrives and the world contracts to twenty metres. It lifts and suddenly you can see the curve of the Atlantic. The villages here are small, precise, and intensely alive - turf-roofed houses clinging to hillsides with a conviction that borders on stubbornness.
+                </p>
+                <p class="chapter-body">
+                    On our final morning, we climbed to the sea cliffs at Vestmanna and stood at the edge of a four-hundred-metre drop. Below, the ocean worked at the rock with patient, enormous force. It was, we agreed later, the closest thing to a conclusion this kind of journey allows.
+                </p>
+                <a href="#" class="chapter-link">
+                    Read the full chapter
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 — THE GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-header reveal">
+            <h2 class="gallery-title">Field Notes</h2>
+            <span class="gallery-count">8 Photographs</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item tall reveal">
+                <img src="images/gallery-item-01.jpg" alt="Arctic landscape" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Dawn Patrol</p>
+                    <p class="gallery-caption-sub">Lofoten, 05:42 AM</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/gallery-item-02.jpg" alt="Coastal village" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Reine Village</p>
+                    <p class="gallery-caption-sub">Nordland, Norway</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/gallery-item-03.jpg" alt="Mountain reflection" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Still Water</p>
+                    <p class="gallery-caption-sub">Flakstad Beach</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/gallery-item-04.jpg" alt="Ice formations" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Glacial Blue</p>
+                    <p class="gallery-caption-sub">Jokulsarlon Lagoon</p>
+                </div>
+            </div>
+            <div class="gallery-item tall reveal">
+                <img src="images/gallery-item-05.jpg" alt="Waterfall cascade" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Seljalandsfoss</p>
+                    <p class="gallery-caption-sub">South Iceland</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/gallery-item-06.jpg" alt="Northern coastline" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Vestmanna Cliffs</p>
+                    <p class="gallery-caption-sub">Faroe Islands</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/gallery-item-07.jpg" alt="Turf-roofed houses" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Saksun</p>
+                    <p class="gallery-caption-sub">Streymoy, Faroes</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/gallery-item-08.jpg" alt="Sunset over fjord" loading="lazy">
+                <div class="gallery-caption">
+                    <p class="gallery-caption-title">Last Light</p>
+                    <p class="gallery-caption-sub">Somewhere at 68 N</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — FOOTER -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3 class="footer-brand-title">The<br>Compass</h3>
+                <p class="footer-brand-desc">An independent journal of slow travel, landscape photography, and the art of deliberate wandering. Published quarterly.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-col-title">Issues</p>
+                <ul>
+                    <li><a href="#">No. 14 - The North</a></li>
+                    <li><a href="#">No. 13 - Patagonia</a></li>
+                    <li><a href="#">No. 12 - The Atlas</a></li>
+                    <li><a href="#">No. 11 - Hokkaido</a></li>
+                    <li><a href="#">Archive</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-col-title">Journal</p>
+                <ul>
+                    <li><a href="#">Field Notes</a></li>
+                    <li><a href="#">Photo Essays</a></li>
+                    <li><a href="#">Interviews</a></li>
+                    <li><a href="#">Contributors</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-subscribe">
+                <p class="footer-col-title">Subscribe</p>
+                <p>Get each issue delivered to your inbox. No spam, just stories from the road.</p>
+                <div class="footer-subscribe-form">
+                    <input type="email" placeholder="Your email address" aria-label="Email address">
+                    <button type="button">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">
+                &copy; 2026 The Compass. Design: <a href="https://www.tooplate.com" target="_blank" rel="nofollow noopener">Tooplate</a>
+            </p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="https://x.com/minthu" target="_blank">Twitter</a>
+                <a href="#">Newsletter</a>
+            </div>
+        </div>
+    </footer>
+    <script src="tooplate-2164-compass-script.js"></script>
+</body>
+</html>
