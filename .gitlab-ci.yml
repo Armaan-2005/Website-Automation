@@ -40,11 +40,13 @@ planning-job:
 applying-job:
   stage: apply
   script:
+    - terraform init
     - terraform apply --auto-approve tfplan
 
 destroying-job:
   stage: destroy
   script:
+    - terraform init
     - terraform destroy --auto-approve -input=false
   when: manual
 
