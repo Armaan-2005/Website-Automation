@@ -1,0 +1,51 @@
+image:
+  name: hashicorp/terraform:latest
+  entrypoint: [""]
+
+stages:
+  - backend
+  - validate
+  - plan
+  - apply
+  - destroy
+
+before_script:
+  - terraform -version
+
+backend-job:
+  stage: backend
+  script:
+    - cd backend
+    - terraform init
+    - terraform apply --auto-approve -input=false
+
+validation-job:
+  stage: validate
+  script:
+    - terraform init
+    - terraform fmt
+    - terraform validate
+
+planning-job:
+  stage: plan
+  script:
+    - terraform plan -out=tfplan
+  artifacts:
+    paths:
+    - tfplan
+    expire_in: 10 minutes
+
+applying-job:
+  stage: apply
+  script:
+    - terraform apply --auto-approve tfplan
+
+destroying-job:
+  stage: destroy
+  script:
+    - terraform destroy --auto-approve -input=false
+  when: manual
+
+after_script:
+  - echo "done"
+
