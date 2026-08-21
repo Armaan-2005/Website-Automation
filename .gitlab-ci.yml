@@ -18,6 +18,7 @@ backend-job:
     - cd backend
     - terraform init
     - terraform apply --auto-approve -input=false
+  when: manual
 
 validation-job:
   stage: validate
@@ -29,6 +30,7 @@ validation-job:
 planning-job:
   stage: plan
   script:
+    - terraform init
     - terraform plan -out=tfplan
   artifacts:
     paths:
