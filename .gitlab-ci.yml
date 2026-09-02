@@ -7,27 +7,31 @@ stages:
   - validate
   - plan
   - apply
+  - show
   - destroy
 
 before_script:
   - terraform -version
 
-backend-job:
+initializing backend:
   stage: backend
   script:
     - cd backend
     - terraform init
     - terraform apply --auto-approve -input=false
-  when: manual
+  artifacts:
+    paths:
+      - backend/terraform.tfstate
+    expire_in: 1 day
 
-validation-job:
+checking code:
   stage: validate
   script:
-    - terraform init
-    - terraform fmt
-    - terraform validate
+  - terraform init
+  - terraform fmt
+  - terraform validate
 
-planning-job:
+planning code:
   stage: plan
   script:
     - terraform init
@@ -37,19 +41,45 @@ planning-job:
     - tfplan
     expire_in: 10 minutes
 
-applying-job:
+deploying code:
   stage: apply
   script:
     - terraform init
     - terraform apply --auto-approve tfplan
+  dependencies:
+    - planning code
 
-destroying-job:
+success:
+  stage: apply
+  script:
+    - echo "automation successfull"
+  when: on_success
+
+failed:
+  stage: apply
+  script:
+    - terraform init
+    - terraform destroy --auto-approve -input=false
+    - echo "automation failed"
+  when: on_failure
+
+show jobs:
+  stage: show
+  script:
+    - terraform init
+    - terraform state list
+    
+delete code:
   stage: destroy
   script:
     - terraform init
     - terraform destroy --auto-approve -input=false
+    - cd backend
+    - terraform init
+    - terraform destroy --auto-approve -input=false
+  dependencies:
+    - initializing backend
   when: manual
 
 after_script:
-  - echo "done"
-
+  - echo "automation completed"
