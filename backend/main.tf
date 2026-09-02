@@ -4,4 +4,5 @@ provider "aws" {
 }
 resource "aws_s3_bucket" "name" {
     bucket = "backend-for-webpage-automation"
+    force_destroy = true
 }
