@@ -54,7 +54,9 @@ success:
   script:
     - echo "automation successfull"
   when: on_success
-
+  dependencies:
+    - deploying code
+    
 failed:
   stage: apply
   script:
