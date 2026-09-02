@@ -18,3 +18,8 @@ module "ec2" {
   key = module.vpc.key_name
   vpc-sg = [module.vpc.sg]
 }
+module "cloudwatch" {
+  source = "./modules/cloudwatch"
+  instance_id = module.ec2.instance_id
+  alert_email = var.alert_email
+}
