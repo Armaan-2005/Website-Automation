@@ -25,7 +25,7 @@ pipeline{
                  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS_credentials']]) {
                 dir('backend'){
                     bat 'terraform -version'
-                    bat 'terraform init'
+                    bat 'terraform init -reconfigure'
                     bat 'terraform apply -auto-approve'
                         }
                     }
@@ -35,7 +35,7 @@ pipeline{
         stage("Terraform Initialization") {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS_credentials']]) {
-                    bat 'terraform init'
+                    bat 'terraform init -reconfigure'
                     bat 'terraform fmt'
                 }
             }
