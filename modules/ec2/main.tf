@@ -14,9 +14,9 @@ resource "aws_instance" "ec2" {
             systemctl enable docker
             systemctl start docker
 
-            docker pull mohammedarmaan2005/webpage:latest
+            docker pull mohammedarmaan2005/my-webpage:latest
 
-            docker run --name my-website -d -p 80:80 mohammedarmaan2005/webpage:latest
+            docker run --name my-website -d -p 80:80 mohammedarmaan2005/my-webpage:latest
             EOF
   tags = {
     Name = "webpage-test"
