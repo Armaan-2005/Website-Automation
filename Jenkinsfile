@@ -79,7 +79,6 @@ pipeline{
     post {
         success {
             echo "======== UPLOADED & HOSTED SUCCESSFULLY ========"
-            bat 'terraform output'
         }
         failure {
             echo "======== EXECUTION FAILED ========"
