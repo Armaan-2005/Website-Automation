@@ -406,7 +406,13 @@ Through this project, I practised:
 - Consider using IAM roles instead of long-lived AWS access keys.
 
 ---
+## 👨‍💻 Author
 
+**Mohammed Armaan Bakshi**
+
+- GitHub: [@Armaan-2005](https://github.com/Armaan-2005)
+
+---
 <p align="center">
   <b>Built to practise real-world DevOps, CI/CD, containerization and AWS infrastructure automation.</b>
 </p>
